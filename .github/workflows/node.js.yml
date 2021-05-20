@@ -1,0 +1,25 @@
+name: Publish Site
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    name: Publish Site
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+        
+    - name: Install Node dependencies
+      run: yarn --frozen-lockfile
+      
+    - name: Build
+      run: yarn build
+
+    - name: Publish website
+      uses: alex-page/blazing-fast-gh-pages-deploy@v1.1.0
+      with:
+        repo-token: ${{ secrets.GH_PAT }}
+        site-directory: 'build'
