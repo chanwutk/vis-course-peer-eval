@@ -43,8 +43,12 @@ fileInput.addEventListener('change', function (e) {
               student.appendChild(evalDiv);
 
               const group = document.createElement('h4');
-              group.innerHTML = _eval.URL;
               evalDiv.appendChild(group);
+
+              const link = document.createElement('a');
+              link.href = _eval.URL;
+              link.innerHTML = _eval.URL;
+              group.append(link);
 
               ['Like', 'WhatIf', 'Wish'].forEach(cat => {
                 const div = document.createElement('div');
