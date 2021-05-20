@@ -4,6 +4,10 @@
   "main": "index.js",
   "author": "Chanwut Kittivorawong <chanwutk@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "rm -rf dist && parcel index.html",
+    "build": "rm -rf build && parcel build index.html --out-dir build"
+  },
   "devDependencies": {
     "parcel-bundler": "^1.12.5"
   },
